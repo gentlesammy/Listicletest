@@ -7,8 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Listicle::class, function (Faker $faker) {
     return [
-        'user_id'   => User::inRandomOrder()->limit(3)->get(),
+        'user_id'   => function () {
+                        return App\User::inRandomOrder()->first()->id;},
         'title' => Str::random(10),
         'Details' => Str::random(100),
+
     ];
 });

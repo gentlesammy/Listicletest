@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="/listicles">Your Listicles</a>
                 </div>
             </div>
         </div>

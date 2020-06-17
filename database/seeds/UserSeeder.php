@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\User;
 class UserSeeder extends Seeder
 {
     /**
@@ -13,8 +14,32 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 50)->create()->each(function ($user) {
-            $user->listicles()->save(factory(App\Listicle::class)->make());
-        });
+
+
+        $users = [
+            [
+                'name'          => 'userOne',
+                'email'         => 'userone@gmail.com',
+                'password'         => bcrypt('userone'),
+
+            ],
+            [
+                'name'          => 'userTwo',
+                'email'         => 'usertwo@gmail.com',
+                'password'         => bcrypt('usertwo'),
+
+            ],
+            [
+                'name'          => 'userThree',
+                'email'         => 'userthree@gmail.com',
+                'password'         => bcrypt('userthree'),
+
+            ],
+            ];
+
+
+            foreach($users as $user){
+                User::create($user);
+            }
     }
 }
