@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relationship with listicle
+    public function listicles()
+    {
+        return $this->hasMany('App\Listicle')->orderBy('created_at', 'desc');
+    }
+
+
 }
